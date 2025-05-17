@@ -112,31 +112,10 @@ def handle_transfer(bot, db, message):
     if not user:
         user = models.User(user_id=user_data.id, tg_username=user_data.username or f"user_{user_data.id}")
         db.insert_user(user)
-    if not user.wallets:
-        Keyboard.menu_not_wallet()
-        bot.send_message(
-                message.chat.id,
-                "У вас ещё нет привязанного кошелька. Хотите добавить?",
-                reply_markup=Keyboard.menu_not_wallet()
-            )
-    else:
-        bot.send_message(
-                message.chat.id,
-                "Выберите действие:",
-                reply_markup=Keyboard.menu_transactions()
-            )
 
-
-
-def on_development_message(bot, message):
-    bot.send_message(
-            message.chat.id,
-            "😄 Эта функция в разработке! Скоро будет доступна.",
-            reply_markup=Keyboard.menu_send_transaction()
-        )
-def show_transaction_options(bot, db, blockchain, message):
+    # Всегда показываем меню, даже если нет кошельков
     bot.send_message(
         message.chat.id,
-        "Куда хотите перевести?",
-        reply_markup=Keyboard.menu_send_transaction()
+        "Выберите действие:",
+        reply_markup=Keyboard.menu_transactions()
     )
