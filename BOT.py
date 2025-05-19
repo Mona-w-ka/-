@@ -45,11 +45,7 @@ class Bot:
                 handle_transfer(self.bot, self.db, message)
             elif message.text == "Совершить перевод":
                 self.bot.send_message(message.chat.id,"😄 Эта функция в разработке! Скоро будет доступна.", reply_markup=Keyboard.menu_send_transaction())
-            elif message.text in ["Между своими", "Другому юзеру"]:
-                self.bot.send_message(message.chat.id,
-                    "😄 Эта функция в разработке! Скоро будет доступна.",
-                    reply_markup=Keyboard.menu_send_transaction()
-                )
+         
 
     def send_welcome(self, message):
         user_data = message.from_user
@@ -75,7 +71,6 @@ class Bot:
             return False
 
     def handle_button_click(self, message):
-        print("БОТ РАБОТАЕТ!!!!!!!!!!!!!!!")
         if message.text == "Баланс":
             from Wallets import select_wallet_for_balance
             select_wallet_for_balance(self.bot, self.db, self.blockchain, message)
@@ -95,9 +90,7 @@ class Bot:
         elif message.text == "Перевод":
             from Wallets import handle_transfer
             handle_transfer(self.bot, self.db, message)
-        if message.text == "Совершить перевод":
-            self.bot.send_message(message.chat.id,"😄 Эта функция в разработке! Скоро будет доступна.", reply_markup=Keyboard.menu_send_transaction())
-
+       
 
     def process_feedback(self, message):
         if self.copy_message(message):
