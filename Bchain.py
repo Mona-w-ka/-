@@ -20,11 +20,4 @@ class Bchain:
         except Exception as e:
             raise ValueError(f"Ошибка при получении баланса для {wallet_address}: {e}")
 
-    def get_gas_price(self):
-        try:
-            gas_price_wei = self.web3.eth.gas_price
-            #gas_price_gwei = round(self.web3.from_wei(gas_price_wei['maxFeePerGas'], 'gwei'), 2)
-            return gas_price_wei
-        except Exception as e:
-            raise Exception(f"Не удалось получить gas price: {e}")
 
