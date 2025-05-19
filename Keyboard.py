@@ -23,9 +23,3 @@ def menu_transactions():
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     markup.add(*[types.KeyboardButton(btn) for btn in buttons])
     return markup
-
-def menu_send_transaction():
-    buttons = ["Между своими", "Другому юзеру", "Назад⬅️"]
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    markup.add(*[types.KeyboardButton(btn) for btn in buttons])
-    return markup
