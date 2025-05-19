@@ -44,7 +44,7 @@ class Bot:
             elif message.text == "Перевод":
                 handle_transfer(self.bot, self.db, message)
             elif message.text == "Совершить перевод":
-                self.bot.send_message(message.chat.id,"😄 Эта функция в разработке! Скоро будет доступна.", reply_markup=Keyboard.menu_send_transaction())
+                self.bot.send_message(message.chat.id,"😄 Эта функция в разработке! Скоро будет доступна.", reply_markup=Keyboard.menu_main())
          
 
     def send_welcome(self, message):
