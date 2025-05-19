@@ -29,7 +29,3 @@ class Bd:
                 print(f"Кошелек уже добавлен")
         else:
             print("Пользователь не найден")
-
-    def add_transaction(self, transaction): #Добавляем транзакцию
-        self.transactlist.append(transaction)
-        print("Транзакция добавлена")
